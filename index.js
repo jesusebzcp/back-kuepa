@@ -15,7 +15,7 @@ app.use(express.json({ extended: true }));
 const server = http.Server(app);
 
 //Port
-const port = process.env.PORT || 3001;
+const port = process.env.port || 3001;
 
 const io = socket(server, {
   cors: {
