@@ -44,5 +44,5 @@ app.use("/api/auth", require("./src/routes/auth"));
 
 //Run server
 server.listen(port, "0.0.0.0", () => {
-  console.log(`On server listener port=${PORT} `);
+  console.log(`On server listener port=${port} `);
 });
