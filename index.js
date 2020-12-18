@@ -39,7 +39,13 @@ io.on("connection", (socket) => {
 });
 
 app.use(cors());
-app.use(function (req, res, next) {
+
+//Import routes
+app.use("/api/users", require("./src/routes/users"));
+app.use("/api/auth", require("./src/routes/auth"));
+
+//Run server
+server.listen(port, "0.0.0.0", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -48,12 +54,5 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Credentials", "true");
   next();
-});
-//Import routes
-app.use("/api/users", require("./src/routes/users"));
-app.use("/api/auth", require("./src/routes/auth"));
-
-//Run server
-server.listen(port, "0.0.0.0", () => {
   console.log(`On server listener port=${port} `);
 });
