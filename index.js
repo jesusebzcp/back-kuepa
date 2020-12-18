@@ -43,6 +43,6 @@ app.use("/api/users", require("./src/routes/users"));
 app.use("/api/auth", require("./src/routes/auth"));
 
 //Run server
-server.listen(port, "0.0.0.0", () => {
+server.listen(port, () => {
   console.log(`On server listener port=${PORT} `);
 });
