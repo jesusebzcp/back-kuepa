@@ -15,7 +15,7 @@ app.use(express.json({ extended: true }));
 const server = http.Server(app);
 
 //Port
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 const io = socket(server, {
   cors: {
@@ -43,6 +43,6 @@ app.use("/api/users", require("./src/routes/users"));
 app.use("/api/auth", require("./src/routes/auth"));
 
 //Run server
-server.listen(PORT, () => {
+server.listen(port, "0.0.0.0", () => {
   console.log(`On server listener port=${PORT} `);
 });
